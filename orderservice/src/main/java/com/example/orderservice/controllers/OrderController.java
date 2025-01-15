@@ -46,8 +46,18 @@ public class OrderController {
         return responseEntity;
     }
 
-    @GetMapping("/test")
-    public ResponseEntity<String> testController(){
-        return new ResponseEntity<>("test api hit", HttpStatus.OK);
+    @GetMapping("/admin")
+    public ResponseEntity<String> adminController(){
+        return new ResponseEntity<>("admin api hit", HttpStatus.OK);
+    }
+
+    @GetMapping("/user")
+    public ResponseEntity<String> userController(){
+        return new ResponseEntity<>("user api hit", HttpStatus.OK);
+    }
+
+    @GetMapping("/seller")
+    public ResponseEntity<String> sellerController(){
+        return new ResponseEntity<>("seller api hit", HttpStatus.OK);
     }
 }

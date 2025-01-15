@@ -8,6 +8,7 @@ import com.example.orderservice.dtos.ProductRequestDto;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -59,5 +60,11 @@ public class OrderController {
     @GetMapping("/seller")
     public ResponseEntity<String> sellerController(){
         return new ResponseEntity<>("seller api hit", HttpStatus.OK);
+    }
+    
+    @PreAuthorize("hasAuthority('ROLE_admin')")
+    @GetMapping("/marketting")
+    public ResponseEntity<String> markettingController(){
+        return new ResponseEntity<>("marketting api hit", HttpStatus.OK);
     }
 }
